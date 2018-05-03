@@ -3,8 +3,8 @@ import UIKit
 struct Constants {
     
     struct Domain {
-        static let Staging = "http://10.0.0.2:8080"
-        static let Testing = ""
+        static let Staging = "http://www.mocky.io/v2/"
+        static let Testing = "http://www.mocky.io/v2/"
         static let Production = ""
     }
     
@@ -19,8 +19,8 @@ struct Constants {
         #endif
         
         // authentication APIs
-        static let RequestAccessToken = baseURL + "/token"
-        static let RefreshAccessToken = baseURL + "/refreshtoken"
+        static let LoginURL = "5aea6dde30000054005db3a3"
+        static let RegisterURL = "refreshtoken"
     }
     
     struct GetNumber {

@@ -11,17 +11,21 @@ import UIKit
 class ViewController: UIViewController {
     
     let apiClient = APIClient()
-    var firstRequest : URLRequest!
+    var firstRequest : URLSessionDataTask!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         let au = LoginRequest.init(id: "abc", pass: "xyz")
-        firstRequest = apiClient.send(apiRequest: au, completion: { (response : ServerResponse) in
+        self.view.showLoading()
+        
+        self.firstRequest = self.apiClient.send(apiRequest: au, completion: { (response : ServerResponse) in
+            self.view.hideLoading()
             print(response.status)
         }, fail: { (error) in
-            
+            self.view.hideLoading()
         })
+
         
     }
 

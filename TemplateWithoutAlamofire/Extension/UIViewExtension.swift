@@ -32,6 +32,37 @@ extension UIView {
         }
         return UINib(nibName: name, bundle:nil)
     }
+    
+    func showLoading() {
+        //Check exist loadingView
+        DispatchQueue.main.async {
+            for view in self.subviews {
+                if view.tag == 69 {
+                    return
+                }
+            }
+            
+            let view = UIView.init(frame: self.frame)
+            view.backgroundColor = UIColor.gray
+            let indicator = UIActivityIndicatorView.init(frame: self.frame)
+            indicator.startAnimating()
+            view.addSubview(indicator)
+            view.tag = 69;
+            self.addSubview(view)
+        }
+
+    }
+    
+    func hideLoading() {
+        DispatchQueue.main.async {
+            for view in self.subviews {
+                if view.tag == 69 {
+                    view.removeFromSuperview()
+                }
+            }
+        }
+
+    }
 }
 
 extension NSLayoutConstraint {
